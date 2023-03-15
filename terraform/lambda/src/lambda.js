@@ -20,8 +20,6 @@ exports.handler = async (event) => {
     const cursor = collection.find(query).skip(skip).limit(limit);
     const results = await cursor.toArray();
 
-    await client.close();
-
     const response = {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
